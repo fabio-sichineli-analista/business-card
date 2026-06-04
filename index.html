@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fábio Sichineli - Cartão Virtual</title>
-  <link rel="icon" href="./assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,12 +13,11 @@
       --gold-strong: #e5c56f;
       --text: #f7f2e7;
       --muted: #c8c1b3;
-      --faint: #9e988b;
-      --border: rgba(202,164,74,.24);
+      --border: rgba(202,164,74,.3 );
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
-      --shadow: 0 28px 70px rgba(0,0,0,.52), 0 12px 34px rgba(202,164,74,.12);
+      --shadow: 0 28px 70px rgba(0,0,0,.6), 0 12px 34px rgba(202,164,74,.15);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,287 +27,176 @@
       display: grid;
       place-items: center;
       padding: 20px;
-      background:
-        radial-gradient(circle at top, rgba(202,164,74,.12), transparent 34%),
-        linear-gradient(180deg, #050505 0%, #111214 100%);
+      background: radial-gradient(circle at top, rgba(202,164,74,.15), transparent 40%), #0a0a0a;
       color: var(--text);
       font-family: 'Satoshi', Arial, sans-serif;
     }
 
     .card {
       width: min(100%, 430px);
-      min-height: 760px;
+      min-height: 850px;
       position: relative;
-      overflow: hidden;
       border-radius: var(--radius-xl);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       background: #111;
-      isolation: isolate;
-    }
-
-    .card::before,
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .card::before {
-      background:
-        linear-gradient(180deg, rgba(4,4,4,.24) 0%, rgba(4,4,4,.46) 38%, rgba(4,4,4,.92) 100%),
-        url('./assets/fundo.jpg') center/cover no-repeat;
-      transform: scale(1.03);
-      z-index: 0;
-    }
-
-    .card::after {
-      background:
-        linear-gradient(135deg, rgba(202,164,74,.16), transparent 26%),
-        linear-gradient(180deg, transparent 52%, rgba(0,0,0,.24) 100%);
-      z-index: 1;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      min-height: 760px;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
-      padding: 24px;
-      gap: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      max-width: 100%;
-      padding: 12px 14px;
-      border-radius: 18px;
-      background: rgba(0,0,0,.42);
-      border: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
-      align-self: flex-start;
+      gap: 24px;
+      text-align: center;
     }
 
     .brand img {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      flex: 0 0 54px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.04);
-      padding: 4px;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      line-height: 1.1;
+      width: 120px; /* Logo aumentada */
+      height: auto;
+      margin-bottom: 12px;
     }
 
     .brand-text strong {
-      font-size: .96rem;
-      letter-spacing: .08em;
-      color: #fff6df;
+      display: block;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .brand-text .slogan {
+      display: block;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      color: var(--gold-strong); /* Slogan em destaque dourado */
+      font-weight: 700;
       text-transform: uppercase;
     }
 
-    .brand-text span {
-      font-size: .66rem;
-      letter-spacing: .16em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .identity {
-      margin-top: auto;
-      display: grid;
-      gap: 10px;
-    }
-
-    h1 {
-      font-family: 'Boska', Georgia, serif;
-      font-size: clamp(2.35rem, 5vw, 3.2rem);
-      line-height: .95;
-      color: #fff7e6;
-      max-width: 9ch;
-      text-shadow: 0 4px 14px rgba(0,0,0,.35);
+    .identity h1 {
+      font-family: 'Boska', serif;
+      font-size: 2.8rem;
+      color: #fff;
+      margin-top: 10px;
     }
 
     .role {
-      font-size: 1rem;
-      line-height: 1.45;
-      color: var(--gold-strong);
+      font-size: 1.1rem;
+      color: var(--gold);
       font-weight: 600;
-      letter-spacing: .03em;
-    }
-
-    .quote {
-      margin-top: 6px;
-      padding: 16px 18px;
-      border-radius: var(--radius-lg);
-      background: rgba(0,0,0,.34);
-      border: 1px solid rgba(202,164,74,.16);
-      backdrop-filter: blur(8px);
-      font-size: .95rem;
-      line-height: 1.55;
-      color: #f5f0e4;
-      max-width: 31ch;
+      margin-bottom: 10px;
     }
 
     .cta-grid {
-      margin-top: 8px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
+      width: 100%;
     }
 
     .btn {
-      min-height: 50px;
+      height: 54px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
+      gap: 12px;
       border-radius: var(--radius-md);
       text-decoration: none;
       font-weight: 700;
-      transition: transform .2s ease, filter .2s ease, background .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
+      transition: all 0.3s ease;
     }
 
     .btn-primary {
       background: linear-gradient(180deg, #e7cb7c 0%, #caa44a 100%);
       color: #17130a;
-      box-shadow: 0 10px 22px rgba(202,164,74,.18);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .impact-phrase {
+      margin: 20px 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: var(--gold-strong);
+      font-weight: 800; /* Negrito extra */
+      padding: 15px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .bottom-panel {
-      margin-top: auto;
-      display: grid;
-      grid-template-columns: 126px 1fr;
-      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 14px;
-      border-radius: 20px;
-      background: rgba(0,0,0,.38);
-      border: 1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
+      gap: 12px;
     }
 
     .qr-box {
-      width: 126px;
-      height: 126px;
-      display: grid;
-      place-items: center;
+      width: 140px;
+      height: 140px;
       background: #fff;
-      border-radius: 18px;
-      border: 1px solid rgba(202,164,74,.18);
-      overflow: hidden;
+      padding: 10px;
+      border-radius: 12px;
     }
 
     .qr-box img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      padding: 8px;
-    }
-
-    .qr-copy {
-      display: grid;
-      gap: 8px;
     }
 
     .qr-copy strong {
-      font-size: .88rem;
-      letter-spacing: .12em;
+      color: var(--gold);
       text-transform: uppercase;
-      color: #f3e7c1;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
     }
 
     .qr-copy p {
-      font-size: .88rem;
-      line-height: 1.5;
+      font-size: 0.85rem;
       color: var(--muted);
-      max-width: 24ch;
-    }
-
-    .footer-note {
-      margin-top: 10px;
-      text-align: center;
-      color: var(--faint);
-      font-size: .74rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 430px) {
-      body { padding: 14px; }
-      .content { padding: 18px; min-height: 720px; }
-      .brand { padding: 10px 12px; }
-      .brand img { width: 48px; height: 48px; flex-basis: 48px; }
-      .brand-text strong { font-size: .88rem; }
-      .brand-text span { font-size: .61rem; }
-      .bottom-panel {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-      .qr-copy p { max-width: none; }
     }
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Cartão virtual de Fábio Sichineli">
-    <section class="content">
-      <div class="brand">
-        <img src="./assets/logo_precisao.png" alt="Logo do Instituto Precisão">
-        <div class="brand-text">
-          <strong>Instituto Precisão</strong>
-          <span>Estrutura Técnica para Decisões de Alto Impacto</span>
-        </div>
+  <main class="card">
+    <div class="brand">
+      <img src="./assets/logo_precisao.png" alt="Logo Instituto Precisão">
+      <div class="brand-text">
+        <strong>Instituto Precisão</strong>
+        <span class="slogan">Estrutura Técnica para Decisões de Alto Impacto</span>
       </div>
+    </div>
 
-      <div class="identity">
-        <h1>Fábio Sichineli</h1>
-        <p class="role">Arquiteto Estrutural do Pensamento</p>
-        <div class="quote">“Decisão não é escolha. É construção.”</div>
+    <div class="identity">
+      <h1>Fábio Sichineli</h1>
+      <p class="role">Analista de decisão estratégica</p>
+    </div>
+
+    <div class="cta-grid">
+      <a href="https://wa.me/5547991820229" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:contato@precisaoanalitica.com.br" class="btn btn-secondary"><i class="fas fa-envelope"></i> E-mail</a>
+      <a href="https://www.linkedin.com/in/fabiosichineli" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.instagram.com/institutoprecisao" class="btn btn-secondary"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://precisaoanalitica.com.br" class="btn btn-secondary"><i class="fas fa-globe"></i> Site</a>
+    </div>
+
+    <div class="impact-phrase">
+      "Estruturamos o pensamento humano sob complexidade para decisões que não admitem improvisos"
+    </div>
+
+    <div class="bottom-panel">
+      <div class="qr-box">
+        <img src="./assets/qrcode.png" alt="QR Code">
       </div>
-
-      <div class="cta-grid">
-        <a href="https://wa.me/5547991820229" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:contato@precisaoanalitica.com.br" class="btn btn-secondary"><i class="fas fa-envelope"></i> E-mail</a>
-        <a href="https://www.linkedin.com/in/fabiosichineli" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://www.instagram.com/institutoprecisao" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://precisaoanalitica.com.br" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Site</a>
+      <div class="qr-copy">
+        <strong>Acesso rápido</strong>
+        <p>Escaneie para salvar o contato</p>
       </div>
-
-      <div class="bottom-panel">
-        <div class="qr-box">
-          <img src="./assets/qrcode.png" alt="QR code para acesso rápido ao cartão digital">
-        </div>
-        <div class="qr-copy">
-          <strong>Acesso rápido</strong>
-          <p>Escaneie o QR code para abrir o cartão digital e salvar os canais de contato com praticidade.</p>
-        </div>
-      </div>
-
-      <p class="footer-note">Estruturamos o pensamento humano sob complexidade para decisões que não admitem improvisos</p>
-    </section>
+    </div>
   </main>
 </body>
 </html>
